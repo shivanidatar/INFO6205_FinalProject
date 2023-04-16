@@ -1,4 +1,4 @@
-package SimulatedAnnealing;
+package com.example.info6205_team02.SimulatedAnnealing;
 
 public class City {
     private double x;

@@ -5,10 +5,9 @@ After Clonning the repository open the folder info6205_team02 in IntelliJ.
 
 The current project has Spring version 3.0.5 and Java version 17.
 You can change the settings in pom.xml if the current java version is not available at your end:-
-
- <version>
-    2.7.8
-</version>
+<parent>
+ <version>2.7.8</version>
+ </parent>
 <properties>
     <java.version>11</java.version>
 </properties>

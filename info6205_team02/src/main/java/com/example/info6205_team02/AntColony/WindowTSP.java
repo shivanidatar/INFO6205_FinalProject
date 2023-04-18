@@ -2,6 +2,10 @@ package com.example.info6205_team02.AntColony;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Draws the nodes to the screen, as well as a path.
@@ -131,18 +135,36 @@ public class WindowTSP extends JFrame {
 
         private void paintCityNames (Graphics2D graphics) {
             graphics.setColor(new Color(200, 200, 200));
+            ArrayList<String> idList= new ArrayList<String>();
+            try {
+                idList = idMap("src/main/java/com/example/info6205_team02/Input/info6205.spring2023.teamproject.csv");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             double[][] array = grap;
             int[] array2=nodes;
             for (int i = 0; i < nodes.length; i++) {
                 int x = (int)((array[array2[i]][0]) / scaleX - CITY_SIZE/2 + OFFSET/2);
                 int y = (int)((array[array2[i]][1]) / scaleY - CITY_SIZE/2 + OFFSET/2);
                 graphics.fillOval(x, y, CITY_SIZE, CITY_SIZE);
-                //int fontOffset = getFontMetrics(graphics.getFont()).stringWidth(String.valueOf(i))/2-2;
                 int fontOffset = getFontMetrics(graphics.getFont()).stringWidth("city "+array2[i])/2-2;
-                graphics.drawString(String.valueOf(array2[i]), x-fontOffset, y-3);
+                graphics.drawString(String.valueOf(idList.get(array2[i])), x-fontOffset, y-3);
             }
 
         }
-    }
 
-}
+        }
+
+        private ArrayList<String> idMap(String path) throws IOException {
+            ArrayList<String> idMapList = new ArrayList<>();
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains("crimeID")) continue;
+                String[] arr = line.split(",");
+                String name = arr[0].substring(arr[0].length()-5);
+                idMapList.add(name);
+            }
+            return idMapList;
+        }
+    }

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class Driver {
     public static void main(String[] args) {
-        System.out.println("Hello");
         ArrayList<ArrayList<Double>> ecuFinalList= new ArrayList<ArrayList<Double>>();
         try {
             ecuFinalList = distanceFromFile("src/main/java/com/example/info6205_team02/Input/info6205.spring2023.teamproject.csv");

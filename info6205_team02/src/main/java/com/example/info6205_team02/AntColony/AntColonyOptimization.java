@@ -1,5 +1,8 @@
 package com.example.info6205_team02.AntColony;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -64,6 +67,13 @@ public class AntColonyOptimization {
      */
     public void startAntOptimization() {
         //WindowTSP windowTSP = new WindowTSP(bestTourOrder, graph);
+        ArrayList<String> idList= new ArrayList<String>();
+        try {
+            idList = idMap("src/main/java/com/example/info6205_team02/Input/info6205.spring2023.teamproject.csv");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<String> finalIdList = idList;
         IntStream.rangeClosed(1, 10)
                 .forEach(i -> {
                     long startTime = System.currentTimeMillis();
@@ -72,12 +82,39 @@ public class AntColonyOptimization {
                     WindowTSP windowTSP = new WindowTSP(bestTourOrder, graph);
                     windowTSP.draw(bestTourOrder, graph);
                     System.out.println("Best tour order: " + Arrays.toString(bestTourOrder));
+                    System.out.println("Best tour order:");
+                    for(int j=0;j<bestTourOrder.length;j++) {
+                        if(j%25==0){
+                            System.out.println();
+                        }
+                        if(j!=bestTourOrder.length-1) {
+                            System.out.print(finalIdList.get(bestTourOrder[j])+"->");
+                        }
+                        else {
+                            System.out.print(finalIdList.get(bestTourOrder[j]));
+                        }
+                    }
+                    System.out.println();
                     long endTime = System.currentTimeMillis();
                     float runTime = (float)(endTime - startTime)/1000;
                     System.out.println("Takes time in seconds :"+ runTime);
                     System.out.println("Length of tour: "+bestTourOrder.length);
                 });
     }
+
+    private ArrayList<String> idMap(String path) throws IOException {
+        ArrayList<String> idMapList = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains("crimeID")) continue;
+            String[] arr = line.split(",");
+            String name = arr[0].substring(arr[0].length()-5);
+            idMapList.add(name);
+        }
+        return idMapList;
+    }
+
 
     /**
      * Use this method to run the main logic
@@ -91,10 +128,7 @@ public class AntColonyOptimization {
                     updateTrails();
                     updateBest();
                 });
-        //System.out.println("Best tour length: " + (Math.abs(bestTourLength - numberOfCities)));
         System.out.println("Best tour length: " + ((bestTourLength)));
-        //System.out.println("Best tour order: " + Arrays.toString(bestTourOrder));
-        //System.out.println("Total evaluations: " +evaluations);
         return bestTourOrder.clone();
 
     }
@@ -187,6 +221,8 @@ public class AntColonyOptimization {
             trails[a.trail[numberOfCities - 1]][a.trail[0]] += contribution;
         }
     }
+
+
 
     /**
      * Update the best solution

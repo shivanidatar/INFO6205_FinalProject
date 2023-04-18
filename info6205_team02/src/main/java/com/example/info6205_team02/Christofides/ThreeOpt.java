@@ -44,7 +44,7 @@ public class ThreeOpt {
                     }
                 }
             }
-            System.out.println("Iteration "+i+" distance is "+bestDistance);
+            //System.out.println("Iteration "+i+" distance is "+bestDistance);
         }
         System.out.println("newDistance is "+bestDistance);
         return graph;

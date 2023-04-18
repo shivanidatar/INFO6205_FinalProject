@@ -46,6 +46,9 @@ public class Driver {
         int[] bestTourOrder = finalAnswer.getFinalTour().stream().mapToInt(i -> i).toArray();
         System.out.println("Best tour order:");
         for(int j=0;j<bestTourOrder.length;j++) {
+            if(j%25==0){
+                System.out.println();
+            }
             if(j!=bestTourOrder.length-1) {
                 System.out.print(idList.get(bestTourOrder[j])+"->");
             }
@@ -87,6 +90,9 @@ public class Driver {
         int[] bestTourOrder = finalAnswer.getFinalTour().stream().mapToInt(i -> i).toArray();
         System.out.println("Best tour order:");
         for(int j=0;j<bestTourOrder.length;j++) {
+            if(j%25==0){
+                System.out.println();
+            }
             if(j!=bestTourOrder.length-1) {
                 System.out.print(idList.get(bestTourOrder[j])+"->");
             }
@@ -130,18 +136,12 @@ public class Driver {
         return distanceGraph;
     }
 
-    // function that calculates the difference in location using A^2 + B^2 = C^2
+    // function that calculates the difference in location using Haversine Formula
     private static double difference(Vertex a, Vertex b) {
-//        double res = Math.sqrt(((b.getX() - a.getX()) * (b.getX() - a.getX())) + ((b.getY()-a.getY())*(b.getY()-a.getY())));
-//        return res;
         double radius = 6371;
-        //double x1 = a.getX()*Math.PI/180;
         double x1 = Math.toRadians(a.getX());
-        //double y1=a.getY()*Math.PI/180;
         double y1 = Math.toRadians(a.getY());
-        //double x2 = b.getX()*Math.PI/180;
         double x2 = Math.toRadians(b.getX());
-        //double y2=b.getY()*Math.PI/180;
         double y2 = Math.toRadians(b.getY());
         double deltaLat = x2 - x1;
         double deltaLon = y2 - y1;

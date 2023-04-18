@@ -116,6 +116,9 @@ public class SimulatedAnnealing {
 // Finally, the code outputs the best tour path and draws it using a graphical user interface.
         System.out.println("Best tour is: ");
         for(int j=0;j<bestSolution.getTravel().size();j++) {
+            if(j%25==0){
+                System.out.println();
+            }
             if(j!=bestSolution.getTravel().size()-1) {
                 System.out.print(idList.get(bestSolution.getTravel().get(j).getC())+"->");
             }

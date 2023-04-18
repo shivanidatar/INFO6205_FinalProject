@@ -30,7 +30,8 @@ public class WindowTSP_Christofides extends JFrame {
      * Construct WindowTSP and draw the nodes to the screen.
      *
      * @param nodes the nodes to draw to the screen
-     * @param graph
+     * @param graph 2d distance array
+     * @param mode flag to decide 2Opt or 3Opt is running
      */
     public WindowTSP_Christofides(int[] nodes, double[][] graph, boolean mode) {
         this.nodes = nodes;
@@ -45,7 +46,7 @@ public class WindowTSP_Christofides extends JFrame {
      * Draw a path through the city.
      *
      * @param chromosome the Chromosome containing the path
-     * @param graph
+     * @param graph 2d distance array
      */
     public void draw (int[] chromosome, double[][] graph) {
         this.nodes = chromosome;
@@ -164,6 +165,7 @@ public class WindowTSP_Christofides extends JFrame {
         }
     }
 
+    // To get hex characters for the corrsponding points
     private ArrayList<String> idMap(String path) throws IOException {
         ArrayList<String> idMapList = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(path));

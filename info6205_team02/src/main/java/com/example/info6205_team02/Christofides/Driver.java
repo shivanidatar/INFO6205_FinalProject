@@ -13,8 +13,9 @@ public class Driver {
         int secondsToRunTwoOpt = args.length != 2 ? 0 : Integer.parseInt(args[1]);
         int secondsToRunThreeOpt = args.length != 2 ? 0 : Integer.parseInt(args[1]);
 
-
+        System.out.println("Executing 2Opt");
         christofidesAlgorithmTwoOpt(filenameThatWillBeParsed, secondsToRunTwoOpt);
+        System.out.println("Executing 3Opt");
         christofidesAlgorithmThreeOpt(filenameThatWillBeParsed, secondsToRunThreeOpt);
 
 

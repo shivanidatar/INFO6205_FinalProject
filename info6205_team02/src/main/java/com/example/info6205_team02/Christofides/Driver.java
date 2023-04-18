@@ -60,8 +60,6 @@ public class Driver {
         System.out.println();
         WindowTSP_Christofides windowTSP = new WindowTSP_Christofides(bestTourOrder, distances, true);
         windowTSP.draw(bestTourOrder, distances);
-        System.out.println("The length of MST is :" + minimumSpanningTree.size());
-        System.out.println("The length of the tour is :" + bestTourOrder.length);
         return finalAnswer;
 
 
@@ -104,8 +102,6 @@ public class Driver {
         System.out.println();
         WindowTSP_Christofides windowTSP = new WindowTSP_Christofides(bestTourOrder, distances, false);
         windowTSP.draw(bestTourOrder, distances);
-        System.out.println("The length of MST is :" + minimumSpanningTree.size());
-        System.out.println("The length of the tour is :" + bestTourOrder.length);
         return finalAnswer;
     }
 

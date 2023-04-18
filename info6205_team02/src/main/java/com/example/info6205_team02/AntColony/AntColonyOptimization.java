@@ -98,7 +98,6 @@ public class AntColonyOptimization {
                     long endTime = System.currentTimeMillis();
                     float runTime = (float)(endTime - startTime)/1000;
                     System.out.println("Takes time in seconds :"+ runTime);
-                    System.out.println("Length of tour: "+bestTourOrder.length);
                 });
     }
 
@@ -128,7 +127,7 @@ public class AntColonyOptimization {
                     updateTrails();
                     updateBest();
                 });
-        System.out.println("Best tour length: " + ((bestTourLength)));
+        System.out.println("Best tour distance: " + ((bestTourLength)));
         return bestTourOrder.clone();
 
     }

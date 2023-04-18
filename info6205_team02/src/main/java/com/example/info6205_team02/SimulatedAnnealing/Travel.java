@@ -83,6 +83,9 @@ public class Travel {
 
         return distance;
     }
+    public Travel(ArrayList<City> travel) {
+        this.travel = travel;
+    }
     //This method returns the list of cities in the current travel plan.
     public ArrayList<City> getTravel() {
         return travel;

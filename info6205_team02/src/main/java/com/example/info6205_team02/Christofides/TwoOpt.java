@@ -37,7 +37,7 @@ public class TwoOpt {
 
 
             }
-       System.out.println("The best new distance is :"+bestDistance);
+       System.out.println("The best new distance is :"+bestDistance +" m");
 
         return graph;
     }

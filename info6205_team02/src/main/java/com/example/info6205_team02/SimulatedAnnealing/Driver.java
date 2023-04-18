@@ -58,18 +58,12 @@ public class Driver {
         }
         return distanceGraph;
     }
-    // function that calculates the difference in location using A^2 + B^2 = C^2
+    // function that calculates the difference in location using haversine formula
     private static double difference(City a, City b) {
-//        double res = Math.sqrt(((b.getX() - a.getX()) * (b.getX() - a.getX())) + ((b.getY()-a.getY())*(b.getY()-a.getY())));
-//        return res;
         double radius = 6371;
-        //double x1 = a.getX()*Math.PI/180;
         double x1 = Math.toRadians(a.getX());
-        //double y1=a.getY()*Math.PI/180;
         double y1 = Math.toRadians(a.getY());
-        //double x2 = b.getX()*Math.PI/180;
         double x2 = Math.toRadians(b.getX());
-        //double y2=b.getY()*Math.PI/180;
         double y2 = Math.toRadians(b.getY());
         double deltaLat = x2-x1;
         double deltaLon = y2-y1;

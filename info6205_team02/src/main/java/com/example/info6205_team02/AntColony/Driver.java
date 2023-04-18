@@ -49,7 +49,6 @@ public class Driver {
                 double a = Math.pow(Math.sin(deltaLat/2),2)+(Math.cos(x1)*Math.cos(x2)) * Math.pow(Math.sin(deltaLon/2),2);
                 double c = 2 *Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
                 double res = (radius * c);
-                //double res = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2-y1)*(y2-y1)));
                 if(res==0) {
                     res=0.000000001;
                 }

@@ -9,13 +9,7 @@ import java.util.ArrayList;
 public class SimulatedAnnealing {
     private  Travel travel;
 
-//     {
-//        try {
-//            travel = new Travel("src/main/java/com/example/info6205_team02/Input/info6205.spring2023.teamproject.csv");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
 // code starts by initializing the SimulatedAnnealing class, where the Travel object contains a list of cities with their coordinates.
 // The SimulatedAnnealing object generates an initial solution by calling the generateInitialTravel() method,
 // which shuffles the cities randomly.
@@ -79,18 +73,10 @@ public class SimulatedAnnealing {
             }
 
             System.out.println("Iteration #" + i);
-            System.out.println("Best Distance is :" + bestDistance);
+            System.out.println("Best Distance is :" + bestDistance+" km");
             long endTime = System.nanoTime();
             float runTime = (float)(endTime - startTime);
             System.out.println("Takes time in nanoseconds :"+ runTime);
-//            int[] node2 = new int[bestSolution.getTravel().size()];
-//            System.out.println("The tour length is: "+bestSolution.getTravel().size());
-//            System.out.println("Best Tour is :");
-//            for(int j=0;j<bestSolution.getTravel().size();j++){
-//                System.out.print(bestSolution.getTravel().get(j).getC() + " ");
-//                node2[j]=bestSolution.getTravel().get(j).getC();
-//            }
-
 
             System.out.println();
 

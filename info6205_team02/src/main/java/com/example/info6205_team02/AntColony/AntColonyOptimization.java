@@ -127,7 +127,7 @@ public class AntColonyOptimization {
                     updateTrails();
                     updateBest();
                 });
-        System.out.println("Best tour distance: " + ((bestTourLength)));
+        System.out.println("Best tour distance: " + ((bestTourLength)) +" km");
         return bestTourOrder.clone();
 
     }

@@ -144,7 +144,7 @@ public class Driver {
         double deltaLon = y2 - y1;
         double e = Math.pow(Math.sin(deltaLat / 2), 2) + (Math.cos(x1) * Math.cos(x2)) * Math.pow(Math.sin(deltaLon / 2), 2);
         double c = 2 * Math.atan2(Math.sqrt(e), Math.sqrt(1 - e));
-        double distance = (radius * c);
+        double distance = (radius * c) * 1000;
         return distance;
     }
 
